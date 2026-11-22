@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>全国書道展 - お菓子アレルギー表示一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="/photo/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+/* 色：白い和紙 / 墨 / 朱 / 藍 */
+:root{--bg:#fefdfb;--surface:#fff;--text:#1f1c1a;--muted:#6b645e;--line:#ddd7ce;--ink:#1f1c1a;--accent:#c8372d;
+--warn-bg:#fbf3ef;--must-bg:#f8dcd6;--rec-bg:#dfe8f3;--hit:#b02a20;--hit-bg:#f4c4bb;--hit-rec:#bdd0e8;--hit-rec-t:#143f7a;--dim:#c9c2b9;
+--serif:"Yuji Syuku","Shippori Mincho","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#171513;--surface:#211e1b;--text:#f1ebe4;--muted:#b0a69b;--line:#3d3730;--ink:#f1ebe4;--accent:#e2574b;--warn-bg:#2e211d;--must-bg:#5a2a22;--rec-bg:#1f3045;--hit:#ffb4a6;--hit-bg:#6b2f25;--hit-rec:#2d4f7c;--hit-rec-t:#a9cdfa;--dim:#5e554c}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#171513;--surface:#211e1b;--text:#f1ebe4;--muted:#b0a69b;--line:#3d3730;--ink:#f1ebe4;--accent:#e2574b;--warn-bg:#2e211d;--must-bg:#5a2a22;--rec-bg:#1f3045;--hit:#ffb4a6;--hit-bg:#6b2f25;--hit-rec:#2d4f7c;--hit-rec-t:#a9cdfa;--dim:#5e554c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.7}
+main{max-width:1200px;margin:0 auto;padding:0 16px 40px}
+
+/* ヘッダー */
+.site-header{max-width:1200px;margin:0 auto;padding:36px 16px 20px;position:relative;text-align:center;container-type:inline-size}
+.site-header .title{font-family:var(--serif);font-weight:400;font-size:min(4.6rem,7.8vw);font-size:min(4.6rem,9cqw);white-space:nowrap;letter-spacing:.18em;margin:0;padding-left:.18em;line-height:1.15;color:var(--ink)}
+.brush{display:block;width:min(520px,80%);height:20px;margin:6px auto 0;color:var(--ink)}
+.site-header .subtitle{font-family:var(--serif);font-size:clamp(1.05rem,3.4vw,1.5rem);letter-spacing:.12em;margin:14px 0 0;font-weight:500}
+.seal{position:absolute;top:30px;right:20px;width:64px;height:64px;background:var(--accent);color:#fff;font-family:var(--serif);font-size:2.3rem;line-height:64px;border-radius:3px;transform:rotate(4deg);box-shadow:inset 0 0 0 3px var(--accent),inset 0 0 0 4.5px rgba(255,255,255,.75)}
+@media (max-width:640px){.seal{width:40px;height:40px;line-height:40px;font-size:1.5rem;top:8px;right:10px}.site-header{padding-top:54px}}
+
+.sub{color:var(--muted);margin:8px 0 16px;font-size:.95rem;text-align:center}
+.notice{background:var(--warn-bg);border-left:4px solid var(--accent);padding:10px 14px;border-radius:2px;font-size:.9rem;margin-bottom:14px}
+.error{background:#fde7e4;color:#8a1f16;border:2px solid #c8372d;padding:10px 14px;border-radius:2px;font-size:.9rem;margin-bottom:14px}
+@media (prefers-color-scheme:dark){.error{background:#4a1f1a;color:#ffd0c8}}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted);margin:0 0 10px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:4px}
+
+/* 表：墨の二重罫 */
+.wrap{overflow:auto;max-height:80vh;max-height:80dvh;border:2px solid var(--ink);outline:1px solid var(--ink);outline-offset:3px;border-radius:0;background:var(--surface);margin:6px 4px}
+table{border-collapse:separate;border-spacing:0;font-size:.88rem;width:100%}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:center;padding:6px 2px}
+th.grp{background:var(--surface);padding:6px 8px;font-size:.9rem;font-family:var(--serif);letter-spacing:.08em;border-bottom:1px solid var(--ink)}
+th.must,th.mustg{background:var(--must-bg)}
+th.rec,th.recg{background:var(--rec-bg)}
+th.v{writing-mode:vertical-rl;letter-spacing:.08em;white-space:nowrap;padding:10px 4px;min-width:30px;font-weight:600;font-family:var(--serif)}
+th.name,td.name{position:sticky;left:0;z-index:1;text-align:left;min-width:170px;padding:6px 10px;background:var(--surface);box-shadow:1px 0 0 var(--ink)}
+th.name{background:var(--warn-bg);vertical-align:bottom;font-family:var(--serif);letter-spacing:.08em}
+/* ウィンドウ枠の固定：1〜2行目の見出し＋左端の列 */
+#h1 th{position:sticky;top:0;z-index:3;height:38px;line-height:1.3;padding-top:0;padding-bottom:0}
+#h2 th{position:sticky;top:38px;z-index:3}
+#h1 th.name{z-index:5}
+td.yes.must{background:var(--hit-bg);color:var(--hit);font-weight:700}
+td.yes.rec{background:var(--hit-rec);color:var(--hit-rec-t);font-weight:700}
+td.no{color:var(--dim)}
+td.note{text-align:left;min-width:140px;padding:6px 10px;font-size:.82rem;color:var(--muted)}
+.foot{font-size:.82rem;color:var(--muted);margin-top:16px}
+
+/* フッター（著作権表示） */
+.site-footer{max-width:1200px;margin:0 auto;padding:8px 16px calc(28px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--muted);font-size:.85rem}
+.site-footer .brush{height:14px;width:min(360px,60%);margin:0 auto 14px;opacity:.85}
+.site-footer p{margin:2px 0}
+.site-footer .org{font-family:var(--serif);letter-spacing:.1em;color:var(--text);font-size:.95rem}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="seal" aria-hidden="true">書</div>
+  <h1 class="title" id="siteTitle"></h1>
+  <svg class="brush" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true">
+    <defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.04 0.9" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs>
+    <path filter="url(#rough)" fill="currentColor" d="M4 12C70 4 190 9 310 7S530 5 596 9C540 13 420 12 310 14S90 18 4 12Z"/>
+  </svg>
+  <p class="subtitle" id="siteSubtitle"></p>
+</header>
+
+<main>
+<p class="sub">つかみ取りに入っているお菓子に含まれるアレルギー食品の一覧です（特定原材料9品目＋特定原材料に準ずるもの20品目）。</p>
+
+<div class="notice">⚠️ 表示は各商品の包装の原材料表示をもとにしています。商品の仕様変更や製造ラインの共有（コンタミネーション）の可能性があるため、アレルギーのある方は<strong>必ず実物のパッケージもご確認ください</strong>。ご不明な点は受付スタッフまでお声がけください。</div>
+
+<div id="errors"></div>
+
+<div class="legend">
+  <span><span class="sw" style="background:var(--hit-bg)"></span>特定原材料（表示義務）</span>
+  <span><span class="sw" style="background:var(--hit-rec)"></span>特定原材料に準ずるもの（表示推奨）</span>
+</div>
+
+<div class="wrap">
+<table>
+  <thead>
+    <tr id="h1"></tr>
+    <tr id="h2"></tr>
+  </thead>
+  <tbody id="body"></tbody>
+</table>
+</div>
+<p class="foot">※令和8年（2026年）4月1日時点の食品表示基準にもとづく区分です。カシューナッツは2026年4月から表示義務の対象で、2年間の経過措置があります。</p>
+</main>
+
+<footer class="site-footer">
+  <svg class="brush" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true">
+    <path filter="url(#rough)" fill="currentColor" d="M4 12C70 4 190 9 310 7S530 5 596 9C540 13 420 12 310 14S90 18 4 12Z"/>
+  </svg>
+  <p class="org" id="footOrg"></p>
+  <p id="footCopy"></p>
+</footer>
+
+<script>
+/* ===== サイト情報（ヘッダー・著作権表示） ===== */
+const SITE = {
+  title: "アレルギー表示一覧",
+  subtitle: "全国書道展",
+  organization: "全国書道展　お菓子つかみ取り企画実行委員会",
+  year: "",
+  copyright: "© 2026年 sh1n* All rights reserved."
+};
+
+/* ===== お菓子リスト：ここに1行ずつ足すだけ！ =====
+   書き方：  お菓子の名前 | アレルゲン（カンマ区切り） | 備考（省略可）
+   ・アレルゲンが無い場合は「お菓子Ｃ |」のように書く
+   ・先頭に # を付けた行は無視されます（一時的に隠したい時に便利）
+   ・アレルゲン名は下の MUST / REC と同じ表記にしてください
+     （間違っていると、ページ上部に赤い警告が出ます）
+   ※以下はサンプルです。実際の商品の原材料表示に合わせて修正してください。 */
+const SNACKS = `
+お菓子Ａ | 乳, 小麦, 大豆
+お菓子Ｂ | 卵, 乳, 小麦, 大豆
+お菓子Ｃ |
+お菓子Ｄ | ゼラチン, りんご
+お菓子Ｅ | 乳, 小麦, 大豆, ゼラチン, 豚肉
+お菓子Ｆ | 乳, 大豆
+お菓子Ｇ | 乳, 落花生, 大豆
+お菓子Ｈ | 小麦, 大豆, ごま
+お菓子Ｉ | 乳, ゼラチン
+お菓子Ｊ | 大豆
+お菓子Ｋ | そば, 大豆
+お菓子Ｌ | そば, 大豆
+お菓子Ｍ | そば, 大豆
+お菓子Ｎ | そば, 大豆
+お菓子Ｏ | そば, 大豆
+`;
+
+/* アレルゲン一覧（通常は変更不要） */
+const MUST = ["えび","かに","くるみ","小麦","そば","卵","乳","落花生","カシューナッツ"];
+const REC = ["アーモンド","あわび","いか","いくら","オレンジ","キウイフルーツ","牛肉","ごま","さけ","さば","大豆","鶏肉","バナナ","ピスタチオ","豚肉","マカダミアナッツ","もも","やまいも","りんご","ゼラチン"];
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* リストを解析 */
+const known=new Set(MUST.concat(REC));
+const errors=[];
+const ITEMS=SNACKS.split("\n").map(l=>l.trim()).filter(l=>l&&!l.startsWith("#")&&!l.startsWith("//")).map(line=>{
+  const p=line.split(/[|｜]/).map(s=>s.trim());
+  const a=(p[1]||"").split(/[,、，\s]+/).filter(Boolean);
+  a.forEach(x=>{if(!known.has(x))errors.push("「"+p[0]+"」のアレルゲン「"+x+"」は一覧にありません（表記を確認してください）")});
+  return {name:p[0],a:a,note:p.slice(2).join(" | ")};
+});
+
+if(errors.length){
+  $("errors").innerHTML='<div class="error"><strong>入力の確認が必要です：</strong><br>'+errors.map(esc).join("<br>")+'</div>';
+}
+
+/* ヘッダー・フッター */
+$("siteTitle").textContent=SITE.title;
+$("siteSubtitle").textContent=SITE.subtitle;
+document.title=SITE.title+" - "+SITE.subtitle;
+$("footOrg").textContent=SITE.organization||"";
+$("footCopy").textContent=SITE.copyright||("© "+SITE.year+" "+SITE.organization+" All rights reserved.");
+
+/* 表 */
+$("h1").innerHTML='<th class="name" rowspan="2">お菓子の名前</th>'
+ +'<th class="grp mustg" colspan="'+MUST.length+'">特定原材料（'+MUST.length+'品目）</th>'
+ +'<th class="grp recg" colspan="'+REC.length+'">特定原材料に準ずるもの（'+REC.length+'品目）</th>'
+ +'<th class="grp" rowspan="2" style="vertical-align:bottom">備考</th>';
+$("h2").innerHTML=MUST.map(n=>'<th class="v must">'+n+'</th>').join('')+REC.map(n=>'<th class="v rec">'+n+'</th>').join('');
+
+$("body").innerHTML=ITEMS.map(it=>{
+  const cell=(n,cls)=>{const y=it.a.includes(n);return '<td class="'+(y?'yes ':'no ')+cls+'">'+(y?'●':'－')+'</td>'};
+  return '<tr><td class="name">'+esc(it.name)+'</td>'+MUST.map(n=>cell(n,'must')).join('')+REC.map(n=>cell(n,'rec')).join('')+'<td class="note">'+esc(it.note)+'</td></tr>';
+}).join('');
+</script>
+</body>
+</html>
